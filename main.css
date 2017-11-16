@@ -1,0 +1,62 @@
+nav {
+	text-align: center;
+	color: #337ab7;
+	height: 4em;
+}
+
+#sBar {
+	width: 15em;
+	border-color: #337ab7;
+
+}
+
+#button0 {
+	text-align: center;
+	background-color: #337ab7;
+	color: white;
+	border-radius: 10px;
+	width: 5em;
+
+}
+
+#button1 {
+	text-align: center;
+	background-color: #337ab7;
+	color: white;
+	border-radius: 10px;
+	width: 10em;
+}
+
+#inputSecton {
+	position: relative;
+	top: 6em;
+	text-align: center;
+	
+}
+
+#button0 {
+	margin-bottom: 0.5em;
+}
+
+#outputSection {
+
+text-align: center;
+position: relative;
+list-style-type: none;
+top: 8em;
+right: 1.5em;
+
+} 
+
+
+
+footer {
+	text-align: center;
+	
+}
+#navBarBottom {
+	height: 1em;
+	background-color: black;
+	background-color: white;
+	color: #337ab7;
+}
