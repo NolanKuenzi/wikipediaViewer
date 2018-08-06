@@ -1,8 +1,15 @@
-nav {
-	text-align: center;
+#header {
+	overflow: hidden;
 	color: #337ab7;
-	height: 4em;
+	text-align: center;
+	text-decoration: underline;
 }
+
+#body_section {
+	position: relative;
+	bottom: 5.5em;
+}
+
 
 #sBar {
 	width: 15em;
@@ -14,8 +21,9 @@ nav {
 	text-align: center;
 	background-color: #337ab7;
 	color: white;
-	border-radius: 10px;
-	width: 5em;
+	border-radius: 1em;
+	width: 8em;
+	height: 2em;
 
 }
 
@@ -23,8 +31,9 @@ nav {
 	text-align: center;
 	background-color: #337ab7;
 	color: white;
-	border-radius: 10px;
-	width: 10em;
+	border-radius: 1em;
+	width: 12em;
+	height: 2em;
 }
 
 #inputSecton {
@@ -43,20 +52,16 @@ nav {
 text-align: center;
 position: relative;
 list-style-type: none;
-top: 8em;
+top: 6em;
 right: 1.5em;
 
 } 
 
-
-
 footer {
-	text-align: center;
-	
-}
-#navBarBottom {
-	height: 1em;
-	background-color: black;
-	background-color: white;
-	color: #337ab7;
+	overflow: hidden;
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    width: 100%;	
+    color: #337ab7;
 }

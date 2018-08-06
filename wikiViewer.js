@@ -1,10 +1,9 @@
 
 $(document).ready(function() {
-
+  
   $("#button0").click(function() {
-  var searchTerm = $("#sBar").val();
-  var api0 = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm + "&limit=10&namespace=0&format=json&callback=?&origin=*";
-
+  let searchTerm = $("#sBar").val();
+  let api0 = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm + "&limit=10&namespace=0&format=json&callback=?&origin=*";
   if (searchTerm === "") {
     alert("Please enter name of the article you would like to access into the search box.");
   }
@@ -34,7 +33,7 @@ $.ajax({
 
   $("#outputSection").html(" ");
 
-  for (var i = 0; i < info[1].length; i++) {
+  for (let i = 0; i < info[1].length; i++) {
     $("#outputSection").prepend("<li><a href="+info[3][i]+">"+info[1][i]+"</a><p>"+info[2][i]+"</p></li>");
  
   } 
@@ -51,20 +50,23 @@ $.ajax({
 });
 
   $("#sBar").keypress(function(event) {
-      
+    if (event.which !== 13) {
+      return;
+    }
+
+    let searchTerm = $("#sBar").val();
     if (event.which === 13) {
       $("#button0").click();
-    }   if (searchTerm === "") {
+    }   
+    if (searchTerm === "") {
        alert("Please enter name of the article you would like to access into the search box.");
-      
       }
   });  
 
 
 $("#button1").click(function() {
-var randomArticle = "https://en.wikipedia.org/wiki/Special:Random";
+const randomArticle = "https://en.wikipedia.org/wiki/Special:Random";
 window.open(randomArticle);
-
 
   }); 
 
