@@ -1,20 +1,32 @@
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%
+}
+
+#body_section {
+	position: relative;
+	min-height: 100%;
+}
+
+#content {
+	height: 100%;
+	padding-bottom: 10em;
+}
+
 #header {
+	position: relative;
 	overflow: hidden;
 	color: #337ab7;
 	text-align: center;
 	text-decoration: underline;
 }
 
-#body_section {
-	position: relative;
-	bottom: 5.5em;
-}
-
-
 #sBar {
 	width: 15em;
 	border-color: #337ab7;
-
 }
 
 #button0 {
@@ -38,9 +50,8 @@
 
 #inputSecton {
 	position: relative;
-	top: 6em;
-	text-align: center;
-	
+	top: 1em;
+	text-align: center;	
 }
 
 #button0 {
@@ -48,20 +59,17 @@
 }
 
 #outputSection {
-
-text-align: center;
-position: relative;
-list-style-type: none;
-top: 6em;
-right: 1.5em;
-
+	text-align: center;
+	position: relative;
+	list-style-type: none;
+	right: 1.5em;
+	top: 2em;
 } 
 
-footer {
-	overflow: hidden;
-    position: fixed;
-    text-align: center;
-    bottom: 0;
-    width: 100%;	
+#footer {
+	position: relative;
+	margin-top: -5.5em;
+    width: 100%;
+    text-align: center;	
     color: #337ab7;
 }
