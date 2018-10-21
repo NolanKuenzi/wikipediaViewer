@@ -1,75 +1,74 @@
 html {
-	height: 100%;
+  height: 100%;
 }
 
 body {
-	height: 100%
+  height: 100%
 }
 
 #body_section {
-	position: relative;
-	min-height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 
 #content {
-	height: 100%;
-	padding-bottom: 10em;
+  height: 100%;
+  padding-bottom: 10em;
 }
 
 #header {
-	position: relative;
-	overflow: hidden;
-	color: #337ab7;
-	text-align: center;
-	text-decoration: underline;
+  position: relative;
+  overflow: hidden;
+  color: #337ab7;
+  text-align: center;
+  text-decoration: underline;
 }
 
 #sBar {
-	width: 15em;
-	border-color: #337ab7;
+  width: 15em;
+  border-color: #337ab7;
 }
 
 #button0 {
-	text-align: center;
-	background-color: #337ab7;
-	color: white;
-	border-radius: 1em;
-	width: 8em;
-	height: 2em;
-
+  text-align: center;
+  background-color: #337ab7;
+  color: white;
+  border-radius: 1em;
+  width: 8em;
+  height: 2em;
 }
 
 #button1 {
-	text-align: center;
-	background-color: #337ab7;
-	color: white;
-	border-radius: 1em;
-	width: 12em;
-	height: 2em;
+  text-align: center;
+  background-color: #337ab7;
+  color: white;
+  border-radius: 1em;
+  width: 12em;
+  height: 2em;
 }
 
 #inputSecton {
-	position: relative;
-	top: 1em;
-	text-align: center;	
+  position: relative;
+  top: 1em;
+  text-align: center;	
 }
 
 #button0 {
-	margin-bottom: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 #outputSection {
-	text-align: center;
-	position: relative;
-	list-style-type: none;
-	right: 1.5em;
-	top: 2em;
+  text-align: center;
+  position: relative;
+  list-style-type: none;
+  right: 1.5em;
+  top: 2em;
 } 
 
 #footer {
-	position: relative;
-	margin-top: -5.5em;
-    width: 100%;
-    text-align: center;	
-    color: #337ab7;
+  position: relative;
+  margin-top: -5.5em;
+  width: 100%;
+  text-align: center;	
+  color: #337ab7;
 }
