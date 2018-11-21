@@ -13,11 +13,8 @@ function handleEvent() {
     if (data[1].length === 0) {
       alert("No results found for search item.");
     }
-    var title = data[1].slice(0),
-        description = data[2].slice(0),
-        link = data[3].slice(0);
-    var list = "<ul>" + title.map(function (item, index) {
-      return "<li><a href=\"" + link[index] + "\" target=\"_blank\">" + item + "</a><p>" + description[index] + "</p></li>";
+    var list = "<ul>" + data[1].map(function (item, index) {
+      return "<li><a href=\"" + data[3][index] + "\" target=\"_blank\">" + item + "</a><p>" + data[2][index] + "</p></li>";
     }).join("") + "</ul>";
     var outputSection = document.getElementById("outputSection");
     outputSection.innerHTML = list;
