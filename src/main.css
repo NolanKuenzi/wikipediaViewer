@@ -30,21 +30,28 @@ body {
 }
 
 #button0 {
-  text-align: center;
-  background-color: #337ab7;
-  color: white;
-  border-radius: 1em;
   width: 8em;
   height: 2em;
 }
 
 #button1 {
+  width: 12em;
+  height: 2em;
+}
+
+.btns {  
   text-align: center;
   background-color: #337ab7;
   color: white;
   border-radius: 1em;
-  width: 12em;
-  height: 2em;
+  cursor: pointer;
+  outline: none !important;
+}
+
+.btns:active {
+  background-color: #337ab7;
+  color: white;
+  transform: translateY(.4em);
 }
 
 #inputSecton {
@@ -57,13 +64,14 @@ body {
   margin-bottom: 0.5em;
 }
 
-#outputSection {
+ul {
+  list-style-type: none;
   text-align: center;
   position: relative;
   list-style-type: none;
   right: 1.5em;
   top: 2em;
-} 
+}
 
 #footer {
   position: relative;

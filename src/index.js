@@ -1,76 +1,37 @@
-$(document).ready(function() {
-  
-  $("#button0").click(function() {
-  let searchTerm = $("#sBar").val();
-  let api0 = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm + "&limit=10&namespace=0&format=json&callback=?&origin=*";
+function handleEvent() {
+  const searchTerm = document.getElementById("sBar").value; 
   if (searchTerm === "") {
     alert("Please enter name of the article you would like to access into the search box.");
-  }
-
-$.ajax({
-
-  type: "GET",
-  async: false,
-  dataType: "json",
-  url: api0,  
- 
-  success: function(info) {
-
-  if (info[1].length >= 10) {
-
-    info[1].reverse().splice(0, 2);
-    info[2].reverse().splice(0, 2);
-    info[3].reverse().splice(0, 2);
-  
-  } else {
-
-    info[1].reverse();
-    info[2].reverse();
-    info[3].reverse();
- 
-  }
-
-  $("#outputSection").html(" ");
-
-  for (let i = 0; i < info[1].length; i++) {
-    $("#outputSection").prepend("<li><a href="+info[3][i]+">"+info[1][i]+"</a><p>"+info[2][i]+"</p></li>");
- 
+    return;
   } 
-
-},
-  
-  error: function() {
-    alert("An error has occured, please try again");
-  
+  const api = `https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&search=${searchTerm}&limit=8`; 
+  fetch(api)
+    .then(response => response.json())
+    .then(data => {
+      if (data[1].length === 0) {
+        alert("No results found for search item.");
       }
+      const title = data[1].slice(0), description = data[2].slice(0), link = data[3].slice(0);
+      const list = `<ul>${title.map((item, index) => `<li><a href="${link[index]}" target="_blank">${item}</a><p>${description[index]}</p></li>`).join("")}</ul>`;
+      const outputSection = document.getElementById("outputSection");
+      outputSection.innerHTML = list;
+    }).catch(() => {
+      alert("Data failed to load, please try again.");
+    });
+}
 
-  }); 
-
+const body = document.querySelector("body");
+body.addEventListener("keypress", event => {
+  if (event.charCode === 13) {
+    handleEvent();
+  }
 });
 
-  $("#sBar").keypress(function(event) {
-    if (event.which !== 13) {
-      return;
-    }
+const button0 = document.getElementById("button0");
+button0.addEventListener("click", handleEvent);
 
-    let searchTerm = $("#sBar").val();
-    if (event.which === 13) {
-      $("#button0").click();
-    }   
-    if (searchTerm === "") {
-       alert("Please enter name of the article you would like to access into the search box.");
-      }
-  });  
-
-
-$("#button1").click(function() {
-const randomArticle = "https://en.wikipedia.org/wiki/Special:Random";
-window.open(randomArticle);
-
-  }); 
-
+const button1 = document.getElementById("button1");
+button1.addEventListener("click", () => {
+  const randomArticle = "https://en.wikipedia.org/wiki/Special:Random";
+  window.open(randomArticle); 
 });
-
-
-
-

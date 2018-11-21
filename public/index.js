@@ -1,65 +1,43 @@
 "use strict";
 
-$(document).ready(function () {
-
-  $("#button0").click(function () {
-    var searchTerm = $("#sBar").val();
-    var api0 = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm + "&limit=10&namespace=0&format=json&callback=?&origin=*";
-    if (searchTerm === "") {
-      alert("Please enter name of the article you would like to access into the search box.");
+function handleEvent() {
+  var searchTerm = document.getElementById("sBar").value;
+  if (searchTerm === "") {
+    alert("Please enter name of the article you would like to access into the search box.");
+    return;
+  }
+  var api = "https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&search=" + searchTerm + "&limit=8";
+  fetch(api).then(function (response) {
+    return response.json();
+  }).then(function (data) {
+    if (data[1].length === 0) {
+      alert("No results found for search item.");
     }
-
-    $.ajax({
-
-      type: "GET",
-      async: false,
-      dataType: "json",
-      url: api0,
-
-      success: function success(info) {
-
-        if (info[1].length >= 10) {
-
-          info[1].reverse().splice(0, 2);
-          info[2].reverse().splice(0, 2);
-          info[3].reverse().splice(0, 2);
-        } else {
-
-          info[1].reverse();
-          info[2].reverse();
-          info[3].reverse();
-        }
-
-        $("#outputSection").html(" ");
-
-        for (var i = 0; i < info[1].length; i++) {
-          $("#outputSection").prepend("<li><a href=" + info[3][i] + ">" + info[1][i] + "</a><p>" + info[2][i] + "</p></li>");
-        }
-      },
-
-      error: function error() {
-        alert("An error has occured, please try again");
-      }
-
-    });
+    var title = data[1].slice(0),
+        description = data[2].slice(0),
+        link = data[3].slice(0);
+    var list = "<ul>" + title.map(function (item, index) {
+      return "<li><a href=\"" + link[index] + "\" target=\"_blank\">" + item + "</a><p>" + description[index] + "</p></li>";
+    }).join("") + "</ul>";
+    var outputSection = document.getElementById("outputSection");
+    outputSection.innerHTML = list;
+  }).catch(function () {
+    alert("Data failed to load, please try again.");
   });
+}
 
-  $("#sBar").keypress(function (event) {
-    if (event.which !== 13) {
-      return;
-    }
+var body = document.querySelector("body");
+body.addEventListener("keypress", function (event) {
+  if (event.charCode === 13) {
+    handleEvent();
+  }
+});
 
-    var searchTerm = $("#sBar").val();
-    if (event.which === 13) {
-      $("#button0").click();
-    }
-    if (searchTerm === "") {
-      alert("Please enter name of the article you would like to access into the search box.");
-    }
-  });
+var button0 = document.getElementById("button0");
+button0.addEventListener("click", handleEvent);
 
-  $("#button1").click(function () {
-    var randomArticle = "https://en.wikipedia.org/wiki/Special:Random";
-    window.open(randomArticle);
-  });
+var button1 = document.getElementById("button1");
+button1.addEventListener("click", function () {
+  var randomArticle = "https://en.wikipedia.org/wiki/Special:Random";
+  window.open(randomArticle);
 });
