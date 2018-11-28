@@ -5,18 +5,20 @@ function handleEvent() {
     return;
   } 
   const api = `https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&search=${searchTerm}&limit=8`; 
-  fetch(api)
-    .then(response => response.json())
-    .then(data => {
+  const getData = (async function() {
+    try {
+      const response = await fetch(api);
+      const data = await response.json();
       if (data[1].length === 0) {
         alert("No results found for search item.");
       }
       const list = `<ul>${data[1].map((item, index) => `<li><a href="${data[3][index]}" target="_blank">${item}</a><p>${data[2][index]}</p></li>`).join("")}</ul>`;
       const outputSection = document.getElementById("outputSection");
       outputSection.innerHTML = list;
-    }).catch(() => {
-      alert("Data failed to load, please try again.");
-    });
+    } catch(error) {
+        alert("Data failed to load, please try again.");
+    }
+  })(); 
 }
 
 const body = document.querySelector("body");
