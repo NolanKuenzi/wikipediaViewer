@@ -1,5 +1,11 @@
 "use strict";
 
+var _regeneratorRuntime = require("regenerator-runtime");
+
+var _regeneratorRuntime2 = _interopRequireDefault(_regeneratorRuntime);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function handleEvent() {
@@ -9,9 +15,9 @@ function handleEvent() {
     return;
   }
   var api = "https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&search=" + searchTerm + "&limit=8";
-  var getData = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+  var getData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime2.default.mark(function _callee() {
     var response, data, list, outputSection;
-    return regeneratorRuntime.wrap(function _callee$(_context) {
+    return _regeneratorRuntime2.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
